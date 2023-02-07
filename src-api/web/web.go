@@ -42,8 +42,8 @@ func New(engine *xorm.Engine) *Web {
 			ClientSecret: os.Getenv("CLIENT_SECRET"),
 			Scopes:       []string{"identify"},
 			Endpoint: oauth2.Endpoint{
-				AuthURL:  os.Getenv("AUTHORIZE_URL"),
-				TokenURL: os.Getenv("TOKEN_URL"),
+				AuthURL:  "https://discord.com/oauth2/authorize",
+				TokenURL: "https://discord.com/api/oauth2/token",
 			},
 			RedirectURL: os.Getenv("REDIRECT_URL"),
 		},
@@ -52,7 +52,7 @@ func New(engine *xorm.Engine) *Web {
 		engine:       engine,
 		ownerSub:     os.Getenv("OWNER"),
 		originUrl:    os.Getenv("ORIGIN_URL"),
-		resourceUrl:  os.Getenv("RESOURCE_URL"),
+		resourceUrl:  discordgo.EndpointUser("@me"),
 	}
 }
 
