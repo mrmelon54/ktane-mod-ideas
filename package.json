@@ -3,15 +3,30 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrMelon54/ktane-mod-ideas"
+  },
+  "author": "MrMelon54",
+  "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "prettier:check:ci": "./node_modules/.bin/prettier --check .",
+    "format": "./node_modules/.bin/prettier --write .",
+    "dev": "concurrently -p \"[{name}]\" -n \"VITE,API\" -c \"bgBlue.bold,bgMagenta.bold\" \"yarn vite:dev\" \"yarn api:dev\"",
+    "build": "concurrently -p \"[{name}]\" -n \"VITE,API\" -c \"bgBlue.bold,bgMagenta.bold\" \"yarn vite:build\" \"yarn api:build\"",
+    "vite:dev": "vite",
+    "vite:build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "api:dev": "cd src-api && make dev",
+    "api:build": "cd src-api && make build"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",
+    "concurrently": "^7.6.0",
+    "prettier": "^2.8.3",
+    "prettier-plugin-svelte": "^2.9.0",
     "sass": "^1.58.0",
     "svelte": "^3.55.1",
     "svelte-check": "^2.10.3",
