@@ -1,0 +1,109 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.rounded-card {
+  text-decoration-color: currentcolor;
+  text-decoration: none;
+  background-color: #2e323e;
+  background-image: none;
+  color: #e8e6e3;
+  box-shadow: #20213114 0 0 1px, #4e555828 0 0 2px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 10px;
+  transition: box-shadow 0.1s linear;
+  padding: 19px 15px;
+  cursor: default;
+  position: relative;
+}
+
+.rounded-blue {
+  background-color: #0260aa;
+  color: #e8e6e3;
+  text-decoration-color: currentcolor;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: #20213114 0 0 1px, #4e555828 0 1px 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none currentcolor;
+  min-width: 100px;
+  cursor: pointer;
+  height: 36px;
+}
+
+.icon-button {
+  position: relative;
+  padding-left: 44px;
+}
+
+.icon-button::after {
+  position: absolute;
+  font-family: "Material Symbols Outlined", serif;
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+  font-size: 24px;
+  line-height: 36px;
+  left: 6px;
+  top: 0;
+  vertical-align: -50%;
+}
+
+#main-loading {
+  margin-top: 100px;
+}
+
+#graph-title {
+  margin-left: 18px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
