@@ -60,3 +60,20 @@ func (m *StateManager) SessionWrapper(cb func(http.ResponseWriter, *http.Request
 		cb(rw, req, u)
 	}
 }
+
+func (m *StateManager) ClearWrapper(cb func(http.ResponseWriter, *http.Request)) func(rw http.ResponseWriter, req *http.Request) {
+	return func(rw http.ResponseWriter, req *http.Request) {
+		session, err := m.Store.New(req, "ktane-mod-ideas-session")
+		if err != nil {
+			http.Error(rw, "500 Internal Server Error: Session Malfunction", http.StatusInternalServerError)
+			return
+		}
+		err = session.Save(req, rw)
+		if err != nil {
+			log.Println("Failed to save session:", err)
+			http.Error(rw, "500 Internal Server Error: Failed to save session", http.StatusInternalServerError)
+			return
+		}
+		cb(rw, req)
+	}
+}

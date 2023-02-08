@@ -60,16 +60,13 @@ func (w *Web) SetupWeb() *http.Server {
 	gob.Register(new(utils.WebServiceKeyType))
 
 	router := mux.NewRouter()
-	router.Use(func(handler http.Handler) http.Handler {
-		return http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
-			rw.Header().Set("Access-Control-Allow-Origin", "*")
-			handler.ServeHTTP(rw, req)
-		})
-	})
 	router.HandleFunc("/", func(rw http.ResponseWriter, req *http.Request) {
 		_, _ = fmt.Fprintln(rw, "KTaNE Mod Ideas API endpoint")
 	})
 	router.HandleFunc("/login", w.stateManager.SessionWrapper(w.loginPage))
+	router.HandleFunc("/logout", w.stateManager.ClearWrapper(func(rw http.ResponseWriter, req *http.Request) {
+		_, _ = fmt.Fprintln(rw, "Logged out")
+	}))
 	router.HandleFunc("/check", w.stateManager.SessionWrapper(w.checkPage))
 	router.HandleFunc("/admin", w.stateManager.SessionWrapper(w.loginWrapper(func(rw http.ResponseWriter, req *http.Request, state *utils.State, loggedIn bool, user structure.User) {
 		if user.Admin {

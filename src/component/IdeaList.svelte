@@ -19,12 +19,12 @@
 </script>
 
 <SearchBar />
-<table>
-  <td><span class="state-bg-green">Currently being implemented [🗸]</span></td>
-  <td><span class="state-bg-yellow">Ready to be implemented [❖]</span></td>
-  <td><span class="state-bg-red">In progress, not ready [✘]</span></td>
+<table class="full-width state-table">
+  <td class="state-bg-green">Currently being implemented [🗸]</td>
+  <td class="state-bg-yellow">Ready to be implemented [❖]</td>
+  <td class="state-bg-red">In progress, not ready [✘]</td>
 </table>
-<table>
+<table class="full-width">
   {#if rows === undefined}
     <IdeaRow idea={null} />
   {:else}
@@ -33,3 +33,21 @@
     {/each}
   {/if}
 </table>
+
+<style lang="scss">
+  table.full-width {
+    width: 100%;
+  }
+
+  table.state-table {
+    border-collapse: collapse;
+    &,
+    tr,
+    td {
+      border: none;
+    }
+    td {
+      padding: 4px;
+    }
+  }
+</style>

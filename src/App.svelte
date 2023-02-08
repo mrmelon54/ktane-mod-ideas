@@ -47,9 +47,9 @@
     max-width: calc(100vw - 32px);
     margin: auto;
 
-    @media screen and (min-width: 1000px) {
-      min-width: 1000px;
-      max-width: calc(100vw - 32px);
+    @media screen and (max-width: 1000px) {
+      min-width: 100%;
+      width: 100%;
       margin: auto;
     }
 

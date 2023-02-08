@@ -10,15 +10,12 @@
   });
 
   function handleLoginClick() {
-    popupCenterScreen(`${API_URL}/login?in_popup`, "Login", 800, 800, false);
+    popupCenterScreen(`${API_URL}/login?in_popup`, "Login", 600, 900, false);
   }
 
   function handleLogoutClick() {
-    fetch(`${API_URL}/logout`, { method: "POST" }).then(function (resp) {
-      if (resp.ok) {
-        user.set(null);
-      }
-    });
+    popupCenterScreen(`${API_URL}/logout?in_popup`, "Logout", 600, 900, false);
+    user.set(null);
   }
 
   function check_user() {

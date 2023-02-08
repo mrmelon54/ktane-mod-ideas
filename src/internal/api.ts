@@ -1,31 +1,31 @@
 export const API_URL = import.meta.env.VITE_API_URL;
 
 export function fetchHomeResult() {
-  return fetchJsonApi(`${API_URL}/api/home`);
+  return fetchJsonApi(`${API_URL}/home`);
 }
 
 export function fetchSearchResult(query: string) {
-  return fetchJsonApi(`${API_URL}/api/search?q=${query}`);
+  return fetchJsonApi(`${API_URL}/search?q=${query}`);
 }
 
 export function fetchIdea(ideaId: number) {
-  return fetchJsonApi(`${API_URL}/api/idea?idea=${ideaId}`);
+  return fetchJsonApi(`${API_URL}/idea?idea=${ideaId}`);
 }
 
 export function publishIdea(data = {}) {
-  return pushJsonApi(`${API_URL}/api/idea`, "POST", data);
+  return pushJsonApi(`${API_URL}/idea`, "POST", data);
 }
 
 export function patchIdea(ideaId: number, data = {}) {
-  return pushJsonApi(`${API_URL}/api/idea?idea=${ideaId}`, "PATCH", data);
+  return pushJsonApi(`${API_URL}/idea?idea=${ideaId}`, "PATCH", data);
 }
 
 export function deleteIdea(ideaId: number) {
-  return pushJsonApi(`${API_URL}/api/idea?idea=${ideaId}`, "DELETE");
+  return pushJsonApi(`${API_URL}/idea?idea=${ideaId}`, "DELETE");
 }
 
 export function patchVote(ideaId: number, voteValue: number) {
-  return pushJsonApi(`${API_URL}/api/vote?idea=${ideaId}`, "PATCH", {
+  return pushJsonApi(`${API_URL}/vote?idea=${ideaId}`, "PATCH", {
     vote: voteValue,
   });
 }

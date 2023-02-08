@@ -31,6 +31,10 @@ body {
   min-height: 100vh;
 }
 
+#app {
+  width: 100%;
+}
+
 .rounded-card {
   text-decoration-color: currentcolor;
   text-decoration: none;
@@ -106,4 +110,48 @@ body {
   button {
     background-color: #f9f9f9;
   }
+}
+
+// State background colours
+.state-bg-green {
+  color: black;
+  text-align: center;
+  background: #e2f0da;
+  width: 30px;
+
+  @media screen and (prefers-color-scheme:dark) {
+    color: white;
+    background: #2a3a18;
+  }
+}
+
+.state-bg-yellow {
+  color: black;
+  text-align: center;
+  background: #fff7d2;
+  width: 30px;
+
+  @media screen and (prefers-color-scheme:dark) {
+    color: white;
+    background: #3a3000;
+  }
+}
+
+.state-bg-red {
+  color: black;
+  text-align: center;
+  background: #f4d4d5;
+  width: 30px;
+
+  @media screen and (prefers-color-scheme:dark) {
+    color: white;
+    background: #421113;
+  }
+}
+
+.state-bg-unknown {
+  color: black;
+  text-align: center;
+  background: gray;
+  width: 30px;
 }
