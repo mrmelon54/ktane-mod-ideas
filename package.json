@@ -18,8 +18,8 @@
     "vite:build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "api:dev": "cd src-api && make dev",
-    "api:build": "cd src-api && make build"
+    "api:dev": "cp .env.local src-api/.env && cd src-api && make dev",
+    "api:build": "cp .env.production src-api/.env && cd src-api && make build"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
