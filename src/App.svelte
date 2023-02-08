@@ -5,6 +5,7 @@
   import Loading from "~/component/Loading.svelte";
   import IdeaList from "~/component/IdeaList.svelte";
   import IdeaRow from "~/component/IdeaRow.svelte";
+  import LoginLegal from "./component/LoginLegal.svelte";
 
   let result;
   let errorMessage;
@@ -17,6 +18,8 @@
         errorMessage = "Failed to load ideas for homepage";
       });
   });
+
+  let showLegal = false;
 </script>
 
 <div class="app-container">
@@ -24,7 +27,7 @@
     <a href="/">
       <h1>KTaNE Mod Ideas</h1>
     </a>
-    <LoginButton />
+    <LoginButton handleLoginClick={() => (showLegal = true)} />
   </header>
   <main>
     {#if result === undefined}
@@ -41,10 +44,14 @@
   </main>
 </div>
 
+{#if showLegal}
+  <LoginLegal closeModal={() => (showLegal = false)} />
+{/if}
+
 <style lang="scss">
   .app-container {
     min-width: 1000px;
-    max-width: calc(100vw - 32px);
+    max-width: 1000px;
     margin: auto;
 
     @media screen and (max-width: 1000px) {

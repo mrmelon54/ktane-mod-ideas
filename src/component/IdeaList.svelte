@@ -19,7 +19,7 @@
 </script>
 
 <SearchBar />
-<table class="full-width state-table">
+<table class="full-width">
   <td class="state-bg-green">Currently being implemented [🗸]</td>
   <td class="state-bg-yellow">Ready to be implemented [❖]</td>
   <td class="state-bg-red">In progress, not ready [✘]</td>
@@ -37,9 +37,6 @@
 <style lang="scss">
   table.full-width {
     width: 100%;
-  }
-
-  table.state-table {
     border-collapse: collapse;
     &,
     tr,

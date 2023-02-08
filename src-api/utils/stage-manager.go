@@ -68,6 +68,7 @@ func (m *StateManager) ClearWrapper(cb func(http.ResponseWriter, *http.Request))
 			http.Error(rw, "500 Internal Server Error: Session Malfunction", http.StatusInternalServerError)
 			return
 		}
+		delete(session.Values, "session-key")
 		err = session.Save(req, rw)
 		if err != nil {
 			log.Println("Failed to save session:", err)

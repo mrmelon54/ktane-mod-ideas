@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { popupCenterScreen } from "~/utils/window";
   import { user } from "~/internal/stores";
@@ -9,13 +9,17 @@
     check_user();
   });
 
-  function handleLoginClick() {
-    popupCenterScreen(`${API_URL}/login?in_popup`, "Login", 600, 900, false);
-  }
+  export let handleLoginClick: () => void;
 
   function handleLogoutClick() {
-    popupCenterScreen(`${API_URL}/logout?in_popup`, "Logout", 600, 900, false);
-    user.set(null);
+    const f = document.createElement("iframe");
+    f.src = `${API_URL}/logout`;
+    f.style.display = "none";
+    document.body.appendChild(f);
+    f.onload = () => {
+      document.body.removeChild(f);
+      user.set(null);
+    };
   }
 
   function check_user() {
